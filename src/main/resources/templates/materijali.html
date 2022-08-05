@@ -1,0 +1,51 @@
+<div xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <section class="jumbotron text-center">
+        <div class="container">
+<!--            <h1 class="jumbotron-heading">Информации за учениците</h1>-->
+        </div>
+    </section>
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12" th:if="${materijali.size() > 0}">
+                <ol class="list-group list-group-numbered" th:each="materijali : ${materijali}">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div>Име: <b th:text="${materijali.getNaslov()}"></b></div>
+                            <div>Презиме: <b th:text="${materijali.getOpis()}">Нови зборови</b></div>
+<!--                            <a th:href="@{/category/edit/{id}(id=${category.idCategory})}">view</a>-->
+
+                            <div>Адреса: <a th:href="${materijali.getLink()}">Граматика</a></div>
+                        </div>
+                        <span>
+                              <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                                    <a th:href="@{'/materijali/edit-form/{id}' (id=${materijali.getId()})}"
+                                       class="btn btn-sm btn-info edit-product">
+                                        <i class="glyphicon glyphicon-edit">Уреди</i>
+                                    </a>
+                                </th:block>
+                              <th:block sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                                    <form th:action="@{'/materijali/delete/{id}' (id=${materijali.getId()})}"
+                                          th:method="DELETE">
+                                        <button type="submit"
+                                                class="btn btn-sm btn-danger delete-product">
+                                            <i class="fa fa-trash">Избриши</i>
+                                        </button>
+                                    </form>
+                                </th:block>
+                          </span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-12" sec:authorize="hasRole('ROLE_ADMINISTRATOR')">
+                <a href="/materijali/add-form" class="btn btn-block btn-dark add-product-btn">
+                    Додади нов материјал за учење
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

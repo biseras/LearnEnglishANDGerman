@@ -1,0 +1,44 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <form action="/materijali/add" method="POST">
+          <input id="id" type="hidden" name="id" th:value="(${materijali} != null ? ${materijali.getId()} : '')">
+          <div class="form-group">
+            <label for="naslov">Име</label>
+            <input type="text"
+                   class="form-control"
+                   id="naslov"
+                   name="naslov"
+                   th:value="(${materijali} != null ? ${materijali.getNaslov()} : '')"
+                   required
+                   placeholder="Внеси име на предметот">
+          </div>
+          <div class="form-group">
+            <label for="opis">Објаснување за предметот</label>
+            <input type="text"
+                   class="form-control"
+                   id="opis"
+                   name="opis"
+                   th:value="(${materijali} != null ? ${materijali.getOpis()} : '')"
+                   placeholder="Објаснување за предметот">
+          </div>
+          <div class="form-group">
+            <label for="link">Опис за предметот</label>
+            <input type="text"
+                   class="form-control"
+                   id="link"
+                   name="link"
+                   th:value="(${materijali} != null ? ${materijali.getLink()} : '')"
+                   placeholder="Опис за предметот">
+          </div>
+          <button id="submit" type="submit" class="btn btn-primary">Објави</button>
+          <a type="button" class="btn btn-primary" href="/materijali">Назад</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</th:block>
