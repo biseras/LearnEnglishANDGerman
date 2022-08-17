@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <form action="/kviz/dodadi-prasanje" method="post">
+        <div class="form-group">
+          <label for="title">Question</label>
+          <input type="text" class="form-control" id="title" name="title" required
+                 placeholder="Enter question">
+          <label for="optionA">Option a</label>
+          <input type="text" class="form-control" id="optionA" name="optionA" required
+                 placeholder="Option a">
+          <label for="optionB">Option b</label>
+          <input type="text" class="form-control" id="optionB" name="optionB" required
+                 placeholder="Option b">
+          <label for="optionC">Option c</label>
+          <input type="text" class="form-control" id="optionC" name="optionC" required
+                 placeholder="Option c">
+          <label for="ans">Answer</label>
+          <input type="text" class="form-control" id="ans" name="ans" required
+                 placeholder="Enter answer">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a type="button" class="btn btn-primary" href="/kviz/prasanja">Back</a>
+      </form>
+    </div>
+  </div>
+</div>

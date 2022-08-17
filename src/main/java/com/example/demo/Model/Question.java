@@ -2,19 +2,18 @@ package com.example.demo.Model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Component
 @Entity
+@Table(name = "quiz_questions")
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int quesId;
     private String title;
+
     private String optionA;
     private String optionB;
     private String optionC;
@@ -25,15 +24,12 @@ public class Question {
         super();
     }
 
-    public Question(int quesId, String title, String optionA, String optionB, String optionC, int ans, int chose) {
-        super();
-        this.quesId = quesId;
+    public Question(String title, String optionA, String optionB, String optionC, int ans) {
         this.title = title;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
         this.ans = ans;
-        this.chose = chose;
     }
 
     public int getQuesId() {
